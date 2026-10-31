@@ -1,1296 +1,1163 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Northgate Home Solutions — Windows, Roofing &amp; Refinancing</title>
-<meta name="description" content="Northgate Home Solutions installs energy-efficient double-pane windows, storm-ready roofing, and refinances your project into one low monthly payment. Free estimates.">
-<meta name="theme-color" content="#0a1a2b">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Professional double-pane windows, roofing, and home refinancing solutions. Request your free consultation today.">
+
+<title>ClearPeak Home & Finance | Windows, Roofing & Refinancing</title>
+
 <style>
-/* ============================================================
-   DESIGN TOKENS
-   ============================================================ */
-:root{
-  --ink:#0a1a2b;
-  --ink-2:#102a41;
-  --ink-3:#1a3d59;
-  --brand:#12a594;
-  --brand-dark:#0c8478;
-  --brand-soft:#e6f6f4;
-  --accent:#f7a325;
-  --accent-soft:#fff3dd;
-  --paper:#ffffff;
-  --paper-2:#f5f8fa;
-  --muted:#5b7189;
-  --line:#e3ebf1;
-  --danger:#d64545;
-  --radius:18px;
-  --radius-sm:12px;
-  --shadow-sm:0 2px 10px rgba(10,26,43,.06);
-  --shadow:0 22px 48px -26px rgba(10,26,43,.45);
-  --shadow-lg:0 34px 70px -34px rgba(10,26,43,.55);
-  --max:1180px;
-  --ease:cubic-bezier(.4,0,.2,1);
+/* ===== GENERAL STYLES ===== */
+
+:root {
+    --navy: #10243d;
+    --blue: #1d4770;
+    --gold: #d9a441;
+    --light: #f4f7fa;
+    --white: #ffffff;
+    --text: #344255;
 }
 
-/* ============================================================
-   RESET / BASE
-   ============================================================ */
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-  margin:0;
-  font-family:'Plus Jakarta Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-  font-size:16px;
-  line-height:1.65;
-  color:var(--ink);
-  background:var(--paper);
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-h1,h2,h3,h4{margin:0;font-weight:800;line-height:1.15;letter-spacing:-.02em}
-p{margin:0}
-ul,ol{margin:0;padding:0;list-style:none}
-a{color:inherit;text-decoration:none}
-img,svg{display:block;max-width:100%}
-button{font:inherit;color:inherit}
-:focus-visible{outline:3px solid rgba(18,165,148,.5);outline-offset:3px;border-radius:6px}
-
-.container{width:min(100% - 2.5rem,var(--max));margin-inline:auto}
-
-.skip-link{
-  position:absolute;left:1rem;top:-100px;z-index:200;
-  background:var(--ink);color:#fff;padding:.75rem 1.25rem;border-radius:0 0 12px 12px;
-  transition:top .25s var(--ease);
-}
-.skip-link:focus{top:0}
-
-/* ============================================================
-   BUTTONS
-   ============================================================ */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-  padding:.9rem 1.6rem;border-radius:999px;border:1px solid transparent;
-  font-weight:700;font-size:.95rem;letter-spacing:-.01em;cursor:pointer;
-  transition:transform .18s var(--ease),background .2s,box-shadow .25s,color .2s;
-  white-space:nowrap;
-}
-.btn:hover{transform:translateY(-2px)}
-.btn:active{transform:translateY(0)}
-.btn-primary{background:var(--brand);color:#fff;box-shadow:0 14px 28px -14px rgba(18,165,148,.9)}
-.btn-primary:hover{background:var(--brand-dark);box-shadow:0 18px 32px -14px rgba(12,132,120,.9)}
-.btn-accent{background:var(--accent);color:#2b1e02;box-shadow:0 14px 28px -14px rgba(247,163,37,.9)}
-.btn-accent:hover{background:#ffb340}
-.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink-2)}
-.btn-ghost:hover{border-color:var(--brand);color:var(--brand-dark)}
-.btn-outline-light{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
-.btn-outline-light:hover{background:rgba(255,255,255,.1);border-color:#fff}
-.btn-sm{padding:.7rem 1.15rem;font-size:.875rem}
-
-/* ============================================================
-   HEADER
-   ============================================================ */
-.site-header{
-  position:sticky;top:0;z-index:100;
-  background:rgba(255,255,255,.82);
-  -webkit-backdrop-filter:saturate(180%) blur(14px);
-  backdrop-filter:saturate(180%) blur(14px);
-  border-bottom:1px solid transparent;
-  transition:box-shadow .3s,border-color .3s,background .3s;
-}
-.site-header.is-scrolled{
-  border-bottom-color:var(--line);
-  box-shadow:0 8px 28px -18px rgba(10,26,43,.4);
-  background:rgba(255,255,255,.95);
-}
-.header-inner{display:flex;align-items:center;gap:1.5rem;min-height:78px}
-
-.logo{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
-.logo-mark{
-  width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--brand),#0b8b7f);color:#fff;
-  box-shadow:0 10px 20px -12px rgba(18,165,148,.95);
-}
-.logo-mark svg{width:22px;height:22px}
-.logo-text{display:flex;flex-direction:column;line-height:1.1;font-weight:800;font-size:1.06rem;letter-spacing:-.02em}
-.logo-text span{font-size:.66rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-top:3px}
-
-.nav{margin-left:auto;display:flex;align-items:center;gap:.15rem}
-.nav a{
-  padding:.55rem .8rem;border-radius:10px;font-size:.925rem;font-weight:600;color:var(--ink-2);
-  transition:background .2s,color .2s;
-}
-.nav a:hover{background:var(--paper-2);color:var(--brand-dark)}
-.nav a.is-active{color:var(--brand-dark);background:var(--brand-soft)}
-
-.header-actions{display:flex;align-items:center;gap:.9rem;margin-left:.5rem}
-.phone-link{
-  display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.9rem;color:var(--ink-2);
-  transition:color .2s;
-}
-.phone-link svg{width:17px;height:17px;color:var(--brand)}
-.phone-link:hover{color:var(--brand-dark)}
-
-.nav-toggle{
-  display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;
-  background:#fff;cursor:pointer;place-items:center;padding:0;position:relative;
-}
-.nav-toggle span{
-  display:block;width:19px;height:2px;border-radius:2px;background:var(--ink);
-  transition:transform .3s var(--ease),opacity .2s;
-}
-.nav-toggle span + span{margin-top:4px}
-.nav-toggle.is-open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.nav-toggle.is-open span:nth-child(2){opacity:0}
-.nav-toggle.is-open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero{
-  position:relative;overflow:hidden;
-  padding:clamp(2.75rem,6vw,5rem) 0 clamp(3.25rem,7vw,5.5rem);
-  background:
-    radial-gradient(900px 520px at 88% -12%,rgba(18,165,148,.18),transparent 62%),
-    radial-gradient(760px 480px at -5% 5%,rgba(247,163,37,.14),transparent 58%),
-    linear-gradient(180deg,#fbfdfe 0%,#ffffff 100%);
-}
-.hero::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:64px 64px;
-  -webkit-mask-image:radial-gradient(circle at 70% 20%,#000,transparent 72%);
-  mask-image:radial-gradient(circle at 70% 20%,#000,transparent 72%);
-  opacity:.45;
-}
-.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-
-.eyebrow{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--brand-dark);background:var(--brand-soft);
-  padding:.45rem .9rem;border-radius:999px;
-}
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);animation:pulse 2.2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.75)}}
-
-.hero h1{
-  font-size:clamp(2.15rem,4.8vw,3.5rem);
-  margin:1.15rem 0 1.1rem;
-  line-height:1.06;
-}
-.hero h1 em{
-  font-style:normal;
-  background:linear-gradient(120deg,var(--brand) 0%,#0e9f8f 45%,var(--accent) 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.hero-lead{font-size:clamp(1rem,1.6vw,1.13rem);color:var(--muted);max-width:34rem}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:1.9rem}
-.hero-note{
-  display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:1.6rem;
-  font-size:.82rem;font-weight:600;color:var(--muted);
-}
-.hero-note span{display:inline-flex;align-items:center;gap:.4rem}
-.hero-note svg{width:15px;height:15px;color:var(--brand);flex-shrink:0}
-
-.hero-stats{
-  display:grid;grid-template-columns:repeat(3,auto);justify-content:start;
-  gap:clamp(1.25rem,3vw,2.75rem);
-  margin-top:2.4rem;padding-top:1.7rem;border-top:1px solid var(--line);
-}
-.hero-stats strong{display:block;font-size:clamp(1.35rem,2.4vw,1.7rem);font-weight:800;letter-spacing:-.03em}
-.hero-stats span{font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.01em}
-
-/* Hero artwork */
-.hero-art{position:relative}
-.art-panel{
-  position:relative;border-radius:26px;padding:clamp(1.5rem,3vw,2.25rem);
-  background:linear-gradient(150deg,#0f2b40 0%,#0a1a2b 55%,#102a41 100%);
-  box-shadow:var(--shadow-lg);
-  overflow:hidden;
-}
-.art-panel::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(420px 240px at 80% 0%,rgba(18,165,148,.35),transparent 70%);
-}
-.house{position:relative;width:100%;height:auto;filter:drop-shadow(0 18px 26px rgba(0,0,0,.28))}
-
-.art-chip{
-  position:absolute;display:flex;align-items:center;gap:.7rem;
-  background:#fff;border-radius:14px;padding:.7rem .95rem;
-  box-shadow:0 16px 34px -16px rgba(10,26,43,.55);
-  animation:float 6s ease-in-out infinite;
-}
-.art-chip strong{display:block;font-size:.95rem;font-weight:800;letter-spacing:-.02em;line-height:1.2}
-.art-chip small{font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:.02em}
-.chip-icon{
-  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;
-  background:var(--brand-soft);color:var(--brand-dark);
-}
-.chip-icon svg{width:18px;height:18px}
-.art-chip--top{top:-18px;left:-14px}
-.art-chip--bottom{bottom:-20px;right:-10px;animation-delay:1.4s}
-.art-chip--bottom .chip-icon{background:var(--accent-soft);color:#b06f04}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-
-/* ============================================================
-   TRUST BAR
-   ============================================================ */
-.trust{border-block:1px solid var(--line);background:#fff}
-.trust-inner{
-  display:flex;align-items:center;gap:2rem;flex-wrap:wrap;
-  padding:1.35rem 0;
-}
-.trust-label{
-  font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-  white-space:nowrap;
-}
-.trust-logos{display:flex;flex-wrap:wrap;gap:.75rem 2.25rem;margin-left:auto}
-.trust-logos li{
-  font-size:.85rem;font-weight:700;color:#8ba0b5;letter-spacing:.03em;
-  transition:color .25s;
-}
-.trust-logos li:hover{color:var(--ink-2)}
-
-/* ============================================================
-   SECTION SHELL
-   ============================================================ */
-.section{padding:clamp(3.5rem,8vw,6rem) 0;scroll-margin-top:92px}
-.section--tint{background:var(--paper-2)}
-.section-head{max-width:44rem;margin-bottom:clamp(2rem,4vw,3rem)}
-.section-head.is-center{margin-inline:auto;text-align:center}
-.section-head .title{font-size:clamp(1.7rem,3.4vw,2.5rem);margin:.95rem 0 .8rem}
-.section-head p{color:var(--muted);font-size:1.02rem}
-
-/* ============================================================
-   SERVICES
-   ============================================================ */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.service-card{
-  position:relative;display:flex;flex-direction:column;gap:1rem;
-  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-  padding:2rem 1.75rem;overflow:hidden;
-  transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;
-}
-.service-card::before{
-  content:"";position:absolute;inset:0 0 auto 0;height:4px;
-  background:linear-gradient(90deg,var(--brand),var(--accent));
-  opacity:0;transition:opacity .3s;
-}
-.service-card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:transparent}
-.service-card:hover::before{opacity:1}
-
-.service-icon{
-  width:56px;height:56px;border-radius:15px;display:grid;place-items:center;
-  background:var(--brand-soft);color:var(--brand-dark);
-  transition:background .3s,color .3s,transform .3s var(--ease);
-}
-.service-icon svg{width:26px;height:26px}
-.service-card:hover .service-icon{background:var(--brand);color:#fff;transform:rotate(-6deg)}
-.service-card h3{font-size:1.22rem}
-.service-card > p{color:var(--muted);font-size:.94rem}
-
-.service-list{display:grid;gap:.55rem;margin-top:.25rem}
-.service-list li{
-  display:flex;align-items:flex-start;gap:.6rem;
-  font-size:.88rem;font-weight:600;color:var(--ink-2);
-}
-.service-list svg{width:16px;height:16px;color:var(--brand);flex-shrink:0;margin-top:.22rem}
-
-.service-link{
-  display:inline-flex;align-items:center;gap:.45rem;margin-top:auto;padding-top:.6rem;
-  font-size:.88rem;font-weight:800;color:var(--brand-dark);
-}
-.service-link svg{width:15px;height:15px;transition:transform .25s var(--ease)}
-.service-link:hover svg{transform:translateX(4px)}
-
-/* ============================================================
-   WHY US
-   ============================================================ */
-.why-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-.why-copy .title{font-size:clamp(1.7rem,3.4vw,2.4rem);margin:.95rem 0 .9rem}
-.why-copy > p{color:var(--muted);margin-bottom:2rem}
-
-.feature-list{display:grid;gap:1.4rem}
-.feature-list li{display:flex;gap:1rem}
-.feature-icon{
-  width:44px;height:44px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;
-  background:#fff;border:1px solid var(--line);color:var(--brand-dark);box-shadow:var(--shadow-sm);
-}
-.feature-icon svg{width:20px;height:20px}
-.feature-list h3{font-size:1rem;margin-bottom:.15rem}
-.feature-list p{font-size:.9rem;color:var(--muted)}
-
-.stats-card{
-  position:relative;overflow:hidden;border-radius:24px;padding:clamp(1.75rem,3.5vw,2.5rem);
-  background:linear-gradient(155deg,#102a41 0%,#0a1a2b 70%);
-  color:#fff;box-shadow:var(--shadow-lg);
-}
-.stats-card::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(400px 260px at 100% 0%,rgba(18,165,148,.4),transparent 68%);
-}
-.stats-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:1.75rem 1.25rem}
-.stat strong{
-  display:block;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800;letter-spacing:-.03em;
-  background:linear-gradient(120deg,#fff,#8fe3d8);-webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.stat span{display:block;font-size:.78rem;font-weight:600;color:#9fb6c9;margin-top:.2rem;line-height:1.4}
-.stats-card .btn{position:relative;width:100%;margin-top:2rem}
-
-/* ============================================================
-   PROCESS
-   ============================================================ */
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative}
-.process::before{
-  content:"";position:absolute;top:25px;left:12%;right:12%;height:2px;
-  background-image:repeating-linear-gradient(90deg,var(--line) 0 9px,transparent 9px 18px);
-}
-.process-step{position:relative;z-index:1}
-.step-num{
-  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
-  background:#fff;border:2px solid var(--line);
-  font-weight:800;font-size:.95rem;color:var(--brand-dark);
-  box-shadow:var(--shadow-sm);margin-bottom:1.15rem;
-  transition:background .3s,border-color .3s,color .3s,transform .3s var(--ease);
-}
-.process-step:hover .step-num{background:var(--brand);border-color:var(--brand);color:#fff;transform:translateY(-4px)}
-.process-step h3{font-size:1.05rem;margin-bottom:.4rem}
-.process-step p{font-size:.9rem;color:var(--muted)}
-
-/* ============================================================
-   FINANCING / CALCULATOR
-   ============================================================ */
-.calc-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-
-.calc-card{
-  background:#fff;border:1px solid var(--line);border-radius:22px;
-  padding:clamp(1.5rem,3vw,2.25rem);box-shadow:var(--shadow);
-}
-.calc-card h3{font-size:1.15rem;margin-bottom:.35rem}
-.calc-card > p{font-size:.86rem;color:var(--muted);margin-bottom:1.6rem}
-
-.calc-field{margin-bottom:1.5rem}
-.calc-label{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:.65rem}
-.calc-label label{font-size:.85rem;font-weight:700;color:var(--ink-2)}
-.calc-label output{font-size:1.02rem;font-weight:800;color:var(--brand-dark);letter-spacing:-.02em}
-
-input[type="range"]{
-  -webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;
-  background:linear-gradient(90deg,var(--brand) var(--fill,50%),var(--line) var(--fill,50%));
-  cursor:pointer;margin:0;
-}
-input[type="range"]::-webkit-slider-thumb{
-  -webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;
-  background:#fff;border:3px solid var(--brand);box-shadow:0 3px 10px rgba(10,26,43,.25);
-  cursor:grab;transition:transform .15s;
-}
-input[type="range"]::-webkit-slider-thumb:active{transform:scale(1.12);cursor:grabbing}
-input[type="range"]::-moz-range-thumb{
-  width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--brand);
-  box-shadow:0 3px 10px rgba(10,26,43,.25);cursor:grab;
-}
-input[type="range"]::-moz-range-track{background:transparent}
-
-.calc-select{
-  width:100%;padding:.75rem 1rem;border-radius:12px;border:1px solid var(--line);
-  background:#fff;font:inherit;font-size:.92rem;font-weight:600;color:var(--ink);
-  cursor:pointer;transition:border-color .2s,box-shadow .2s;
-}
-.calc-select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(18,165,148,.16)}
-
-.calc-result{
-  border-radius:16px;padding:1.35rem 1.4rem;margin-top:.5rem;
-  background:linear-gradient(150deg,#102a41,#0a1a2b);color:#fff;
-}
-.calc-result > span{font-size:.74rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#8fb0c4}
-.calc-payment{display:block;font-size:clamp(1.85rem,4vw,2.4rem);font-weight:800;letter-spacing:-.03em;margin:.3rem 0 .9rem}
-.calc-payment small{font-size:.85rem;font-weight:600;color:#9fb6c9;letter-spacing:0}
-.calc-breakdown{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;padding-top:.9rem;border-top:1px solid rgba(255,255,255,.14)}
-.calc-breakdown dt{font-size:.72rem;font-weight:600;color:#8fb0c4;text-transform:uppercase;letter-spacing:.08em}
-.calc-breakdown dd{margin:.15rem 0 0;font-size:.98rem;font-weight:700}
-.calc-disclaimer{font-size:.74rem;color:var(--muted);margin-top:1rem;line-height:1.5}
-
-.finance-bullets{display:grid;gap:.9rem;margin:1.75rem 0 2rem}
-.finance-bullets li{display:flex;gap:.7rem;font-size:.93rem;font-weight:600;color:var(--ink-2)}
-.finance-bullets svg{width:19px;height:19px;color:var(--brand);flex-shrink:0;margin-top:.15rem}
-
-/* ============================================================
-   TESTIMONIALS
-   ============================================================ */
-.slider{overflow:hidden;border-radius:22px}
-.slider-track{display:flex;transition:transform .55s var(--ease)}
-.testimonial{
-  flex:0 0 100%;min-width:0;
-  background:#fff;border:1px solid var(--line);border-radius:22px;
-  padding:clamp(1.75rem,4vw,3rem);
-  box-shadow:var(--shadow-sm);
-}
-.stars{display:flex;gap:.2rem;color:var(--accent);margin-bottom:1.1rem}
-.stars svg{width:18px;height:18px}
-.testimonial blockquote{
-  margin:0 0 1.6rem;font-size:clamp(1.02rem,2vw,1.2rem);font-weight:600;
-  line-height:1.6;letter-spacing:-.01em;color:var(--ink-2);
-}
-.testimonial-author{display:flex;align-items:center;gap:.9rem}
-.avatar{
-  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
-  font-weight:800;font-size:.95rem;color:#fff;flex-shrink:0;
-  background:linear-gradient(135deg,var(--brand),#0b8b7f);
-}
-.avatar--alt{background:linear-gradient(135deg,#3f7fd8,#2a5fae)}
-.avatar--alt2{background:linear-gradient(135deg,var(--accent),#d98410)}
-.testimonial-author strong{display:block;font-size:.95rem}
-.testimonial-author span{font-size:.82rem;color:var(--muted)}
-
-.slider-controls{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.75rem}
-.slider-btn{
-  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;
-  display:grid;place-items:center;cursor:pointer;transition:.2s;color:var(--ink-2);
-}
-.slider-btn:hover{background:var(--brand);border-color:var(--brand);color:#fff;transform:translateY(-2px)}
-.slider-btn svg{width:18px;height:18px}
-.slider-dots{display:flex;gap:.45rem}
-.dot{
-  width:9px;height:9px;border-radius:50%;border:none;padding:0;cursor:pointer;
-  background:var(--line);transition:background .25s,width .25s var(--ease);
-}
-.dot.is-active{background:var(--brand);width:26px;border-radius:999px}
-
-/* ============================================================
-   FAQ
-   ============================================================ */
-.faq{max-width:52rem;margin-inline:auto;display:grid;gap:.85rem}
-.faq-item{
-  background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  transition:border-color .25s,box-shadow .25s;
-}
-.faq-item.is-open{border-color:rgba(18,165,148,.45);box-shadow:var(--shadow-sm)}
-.faq-q{
-  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.25rem;
-  padding:1.15rem 1.35rem;background:none;border:none;cursor:pointer;text-align:left;
-  font-size:.98rem;font-weight:700;color:var(--ink);letter-spacing:-.01em;
-}
-.faq-q .chev{
-  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;
-  background:var(--paper-2);color:var(--ink-2);transition:transform .3s var(--ease),background .25s,color .25s;
-}
-.faq-q .chev svg{width:14px;height:14px}
-.faq-item.is-open .chev{transform:rotate(180deg);background:var(--brand);color:#fff}
-.faq-a{
-  max-height:0;overflow:hidden;transition:max-height .38s var(--ease);
-}
-.faq-a p{padding:0 1.35rem 1.3rem;font-size:.92rem;color:var(--muted);max-width:46rem}
-
-/* ============================================================
-   CONTACT
-   ============================================================ */
-.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,4vw,3.5rem);align-items:start}
-.contact-card{
-  background:#fff;border:1px solid var(--line);border-radius:22px;
-  padding:clamp(1.5rem,3vw,2.25rem);box-shadow:var(--shadow);
-}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
-.field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.9rem}
-.field label{font-size:.82rem;font-weight:700;color:var(--ink-2)}
-.field label .req{color:var(--brand)}
-.field input,.field select,.field textarea{
-  width:100%;padding:.82rem 1rem;border:1px solid var(--line);border-radius:12px;
-  font:inherit;font-size:.94rem;color:var(--ink);background:#fff;
-  transition:border-color .2s,box-shadow .2s;
-}
-.field textarea{resize:vertical;min-height:118px}
-.field input:focus,.field select:focus,.field textarea:focus{
-  outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(18,165,148,.16);
-}
-.field.has-error input,.field.has-error select,.field.has-error textarea{
-  border-color:var(--danger);box-shadow:0 0 0 3px rgba(214,69,69,.12);
-}
-.field-error{font-size:.76rem;font-weight:600;color:var(--danger);min-height:1em;margin:0}
-.form-success{
-  display:none;align-items:center;gap:.7rem;margin-top:1rem;
-  background:var(--brand-soft);color:var(--brand-dark);
-  border-radius:12px;padding:.9rem 1.1rem;font-size:.9rem;font-weight:700;
-}
-.form-success.is-visible{display:flex;animation:fadeUp .45s var(--ease)}
-.form-success svg{width:20px;height:20px;flex-shrink:0}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-
-.contact-aside{
-  border-radius:22px;padding:clamp(1.75rem,3.5vw,2.5rem);color:#fff;
-  background:linear-gradient(155deg,#102a41,#0a1a2b 72%);
-  box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
-}
-.contact-aside::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(420px 260px at 110% 0%,rgba(18,165,148,.4),transparent 68%);
-}
-.contact-aside > *{position:relative}
-.contact-aside h3{font-size:1.28rem;margin-bottom:.6rem}
-.contact-aside > p{color:#9fb6c9;font-size:.92rem;margin-bottom:1.9rem}
-.contact-lines{display:grid;gap:1.2rem}
-.contact-lines li{display:flex;gap:.9rem;align-items:flex-start}
-.contact-lines .ci{
-  width:40px;height:40px;border-radius:11px;flex-shrink:0;display:grid;place-items:center;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#8fe3d8;
-}
-.contact-lines .ci svg{width:18px;height:18px}
-.contact-lines strong{display:block;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8fb0c4}
-.contact-lines a,.contact-lines span{font-size:.95rem;font-weight:600;color:#fff;line-height:1.5}
-.contact-lines a:hover{color:#8fe3d8}
-.badge-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12)}
-.badge-row span{
-  font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
-  padding:.35rem .7rem;border-radius:999px;color:#cfe0ec;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.site-footer{background:var(--ink);color:#a9bfd1;padding:clamp(3rem,6vw,4.25rem) 0 0;font-size:.9rem}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:2.5rem}
-.site-footer .logo-text{color:#fff}
-.site-footer .logo-text span{color:#7f9ab0}
-.footer-about p{margin-top:1.15rem;max-width:22rem;color:#8ba3b8;font-size:.88rem;line-height:1.7}
-.socials{display:flex;gap:.6rem;margin-top:1.4rem}
-.socials a{
-  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#cfe0ec;
-  transition:.22s;
-}
-.socials a:hover{background:var(--brand);border-color:var(--brand);color:#fff;transform:translateY(-3px)}
-.socials svg{width:17px;height:17px}
-
-.footer-col h4{
-  color:#fff;font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
-  margin-bottom:1.15rem;
-}
-.footer-col ul{display:grid;gap:.65rem}
-.footer-col a{color:#9fb6c9;transition:color .2s}
-.footer-col a:hover{color:#fff}
-.footer-col address{font-style:normal;color:#9fb6c9;line-height:1.9}
-
-.footer-bottom{
-  margin-top:clamp(2.5rem,5vw,3.5rem);padding:1.5rem 0;
-  border-top:1px solid rgba(255,255,255,.1);
-  display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;
-  font-size:.82rem;color:#7f9ab0;
-}
-.footer-bottom ul{display:flex;flex-wrap:wrap;gap:1.5rem}
-.footer-bottom a:hover{color:#fff}
-
-/* ============================================================
-   SCROLL REVEAL
-   ============================================================ */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--delay,0ms)}
-.reveal.is-visible{opacity:1;transform:none}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width:1080px){
-  .phone-link{display:none}
-}
-@media (max-width:960px){
-  .hero-inner{grid-template-columns:1fr;gap:3rem}
-  .hero-art{max-width:520px;margin-inline:auto;width:100%}
-  .why-grid{grid-template-columns:1fr}
-  .calc-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .services-grid{grid-template-columns:1fr 1fr}
-  .process{grid-template-columns:1fr 1fr}
-  .process::before{display:none}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media (max-width:900px){
-  .nav{
-    position:absolute;top:100%;left:0;right:0;
-    flex-direction:column;align-items:stretch;gap:.15rem;
-    background:#fff;padding:.75rem 1.25rem 1.25rem;
-    border-bottom:1px solid var(--line);
-    box-shadow:0 24px 40px -24px rgba(10,26,43,.45);
-    display:none;
-  }
-  .nav.is-open{display:flex;animation:fadeUp .28s var(--ease)}
-  .nav a{padding:.8rem .75rem;font-size:.98rem}
-  .header-actions{margin-left:auto}
-  .nav-toggle{display:grid}
-  .header-inner{min-height:70px}
-}
-@media (max-width:720px){
-  .services-grid{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  .hero-stats{grid-template-columns:repeat(3,1fr);gap:1rem}
-  .trust-inner{gap:1rem}
-  .trust-logos{margin-left:0;gap:.6rem 1.4rem}
-  .trust-logos li{font-size:.78rem}
-  .footer-grid{grid-template-columns:1fr;gap:2rem}
-  .art-chip--top{left:-6px}
-  .art-chip--bottom{right:-4px}
-}
-@media (max-width:520px){
-  .process{grid-template-columns:1fr}
-  .stats-grid{grid-template-columns:1fr}
-  .calc-breakdown{grid-template-columns:1fr}
-  .hero-cta .btn{width:100%}
-  .header-actions .btn{display:none}
-  .art-chip{padding:.55rem .7rem;gap:.5rem}
-  .art-chip strong{font-size:.82rem}
-  .art-chip small{font-size:.64rem}
+html {
+    scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
-  html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 13px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #efbd5b;
+    transform: translateY(-2px);
+}
+
+/* ===== HEADER ===== */
+
+header {
+    background: var(--navy);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 27px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+    min-height: 590px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 28, 49, 0.93),
+            rgba(10, 28, 49, 0.55)
+        ),
+        url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+    color: white;
+}
+
+.hero-content {
+    max-width: 720px;
+    padding: 90px 0;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 59px);
+    line-height: 1.12;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 580px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    padding: 11px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--navy);
+}
+
+/* ===== TRUST BAR ===== */
+
+.trust-bar {
+    background: var(--gold);
+    padding: 20px 0;
+    color: var(--navy);
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    gap: 20px;
+}
+
+.trust-grid strong {
+    font-size: 16px;
+}
+
+/* ===== SECTIONS ===== */
+
+section {
+    padding: 85px 0;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.section-heading h2 {
+    color: var(--navy);
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: #687789;
+}
+
+/* ===== SERVICES ===== */
+
+.services {
+    background: var(--light);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.service-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.service-content {
+    padding: 26px;
+}
+
+.service-content h3 {
+    color: var(--navy);
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.service-content p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.service-content a {
+    color: var(--blue);
+    font-weight: bold;
+}
+
+/* ===== ABOUT ===== */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.about-content h2 {
+    color: var(--navy);
+    font-size: 35px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+}
+
+.benefit {
+    margin: 12px 0;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.benefit span {
+    color: var(--gold);
+    margin-right: 8px;
+}
+
+/* ===== PROCESS ===== */
+
+.process {
+    background: var(--navy);
+    color: white;
+}
+
+.process .section-heading h2 {
+    color: white;
+}
+
+.process .section-heading p {
+    color: #d0d9e4;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.process-item {
+    padding: 20px;
+}
+
+.process-number {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 50%;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+.process-item h3 {
+    margin-bottom: 10px;
+}
+
+/* ===== CTA ===== */
+
+.cta {
+    background: var(--gold);
+    text-align: center;
+    color: var(--navy);
+}
+
+.cta h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    margin-bottom: 25px;
+}
+
+.cta .btn {
+    background: var(--navy);
+    color: white;
+}
+
+/* ===== CONTACT ===== */
+
+.contact {
+    background: var(--light);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 50px;
+}
+
+.contact-info h2 {
+    color: var(--navy);
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    background: white;
+    padding: 35px;
+    border-radius: 9px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: var(--navy);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d8e0e8;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.contact-form button {
+    width: 100%;
+    font-size: 16px;
+}
+
+#formMessage {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    background: #091a2d;
+    color: white;
+    padding: 45px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 35px;
+}
+
+footer h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+footer p,
+footer li {
+    color: #c5d0dc;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    border-top: 1px solid #314054;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #aab7c6;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 850px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: var(--navy);
+        flex-direction: column;
+        padding: 25px;
+        gap: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .service-grid,
+    .process-grid,
+    .trust-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 530px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .section-heading h2,
+    .about-content h2,
+    .cta h2 {
+        font-size: 29px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .contact-form {
+        padding: 23px;
+    }
 }
 </style>
 </head>
+
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- ================= HEADER ================= -->
-<header class="site-header" id="siteHeader">
-  <div class="container header-inner">
-    <a href="#top" class="logo" aria-label="Northgate Home Solutions — home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.6V21h14V9.6"/><path d="M9.5 21v-6h5v6"/>
-        </svg>
-      </span>
-      <span class="logo-text">Northgate<span>Home Solutions</span></span>
-    </a>
+<!-- HEADER -->
 
-    <nav class="nav" id="primaryNav" aria-label="Primary">
-      <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
-      <a href="#financing">Financing</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">FAQ</a>
-    </nav>
+<header>
+    <div class="container navbar">
 
-    <div class="header-actions">
-      <a href="tel:+15550123456" class="phone-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/>
-        </svg>
-        (555) 012-3456
-      </a>
-      <a href="#contact" class="btn btn-primary btn-sm">Free Estimate</a>
-      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
-        <span></span><span></span><span></span>
-      </button>
+        <a href="#home" class="logo">
+            ClearPeak<span>.</span>
+        </a>
+
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#contact" class="btn">Free Consultation</a></li>
+        </ul>
+
     </div>
-  </div>
 </header>
 
-<main id="main">
-<span id="top"></span>
+<!-- HERO -->
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="container hero-inner">
-    <div class="hero-copy">
-      <span class="eyebrow"><span class="dot"></span>Windows · Roofing · Refinancing</span>
-      <h1>A tighter home. A stronger roof. <em>A smarter loan.</em></h1>
-      <p class="hero-lead">
-        Northgate replaces drafty single-pane windows, installs storm-ready roofing, and
-        refinances the whole project into one low monthly payment — all handled by one
-        licensed, insured team.
-      </p>
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
 
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">
-          Get a free estimate
-          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-        </a>
-        <a href="#financing" class="btn btn-ghost">See financing options</a>
-      </div>
+            <h1>
+                Upgrade Your Home.
+                <span>Protect Your Investment.</span>
+            </h1>
 
-      <p class="hero-note">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Free in-home assessment</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>No-pressure quotes</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>25-year warranties</span>
-      </p>
+            <p>
+                From energy-efficient double-pane windows
+                to quality roofing and home refinancing
+                solutions, we help homeowners make smarter
+                investments in their properties.
+            </p>
 
-      <div class="hero-stats">
-        <div><strong>25 yrs</strong><span>Warranty coverage</span></div>
-        <div><strong>32%</strong><span>Avg. energy savings</span></div>
-        <div><strong>$0</strong><span>Down financing</span></div>
-      </div>
-    </div>
+            <div class="hero-buttons">
+                <a href="#services" class="btn">
+                    Explore Our Services
+                </a>
 
-    <div class="hero-art reveal">
-      <div class="art-panel">
-        <svg class="house" viewBox="0 0 320 220" role="img" aria-label="Illustration of a home with new double-pane windows and a new roof">
-          <defs>
-            <linearGradient id="roofGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#2dd4bf"/>
-              <stop offset="1" stop-color="#0d8478"/>
-            </linearGradient>
-          </defs>
-          <ellipse cx="160" cy="194" rx="132" ry="10" fill="rgba(255,255,255,.08)"/>
-          <rect x="232" y="52" width="18" height="46" rx="3" fill="#8fb3c9" opacity=".55"/>
-          <path d="M160 24 18 130h284z" fill="url(#roofGrad)"/>
-          <path d="M160 24 18 130h284z" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linejoin="round"/>
-          <rect x="58" y="130" width="204" height="58" rx="7" fill="#eef6f6"/>
-          <rect x="82" y="142" width="52" height="34" rx="4" fill="#0f2438" opacity=".88"/>
-          <rect x="186" y="142" width="52" height="34" rx="4" fill="#0f2438" opacity=".88"/>
-          <g stroke="#2dd4bf" stroke-width="2.4" opacity=".95">
-            <line x1="108" y1="142" x2="108" y2="176"/>
-            <line x1="82" y1="159" x2="134" y2="159"/>
-            <line x1="212" y1="142" x2="212" y2="176"/>
-            <line x1="186" y1="159" x2="238" y2="159"/>
-          </g>
-          <rect x="147" y="146" width="26" height="42" rx="3" fill="#f7a325"/>
-          <circle cx="167" cy="168" r="1.9" fill="#0f2438"/>
-        </svg>
-
-        <div class="art-chip art-chip--top">
-          <span class="chip-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.1 12.5a1 1 0 0 0 .8 1.6h6.1l-1 7.9 8.9-10.5a1 1 0 0 0-.8-1.6h-6.1z"/></svg>
-          </span>
-          <div><strong>Up to 32%</strong><small>Lower energy bills</small></div>
-        </div>
-
-        <div class="art-chip art-chip--bottom">
-          <span class="chip-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-          </span>
-          <div><strong>From $149/mo</strong><small>Refinanced payment</small></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TRUST BAR ================= -->
-<section class="trust" aria-label="Certifications and partners">
-  <div class="container trust-inner">
-    <p class="trust-label">Certified &amp; trusted by</p>
-    <ul class="trust-logos">
-      <li>ENERGY STAR®</li>
-      <li>BBB A+ Rated</li>
-      <li>GAF Master Elite®</li>
-      <li>CertainTeed SELECT</li>
-      <li>NARI Member</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ================= SERVICES ================= -->
-<section class="section" id="services">
-  <div class="container">
-    <div class="section-head is-center reveal">
-      <span class="eyebrow">What we do</span>
-      <h2 class="title">Three services. One accountable team.</h2>
-      <p>Windows, roofing, and financing are usually three separate contractors and three separate headaches. We bundle them so your project stays on schedule and on budget.</p>
-    </div>
-
-    <div class="services-grid">
-      <!-- Windows -->
-      <article class="service-card reveal">
-        <span class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/>
-          </svg>
-        </span>
-        <h3>Double-Pane Windows</h3>
-        <p>Argon-filled, Low-E glazed units that cut heat loss, block outside noise, and stop condensation for good.</p>
-        <ul class="service-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Dual-pane, argon-filled glass</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Low-E coating &amp; UV protection</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Up to 45% less outside noise</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>25-year sealed-unit warranty</li>
-        </ul>
-        <a href="#contact" class="service-link">
-          Request a window quote
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-        </a>
-      </article>
-
-      <!-- Roofing -->
-      <article class="service-card reveal" style="--delay:110ms">
-        <span class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m2 12 10-9 10 9"/><path d="M5 11v10h14V11"/><path d="M10 21v-6h4v6"/>
-          </svg>
-        </span>
-        <h3>Roofing &amp; Storm Repair</h3>
-        <p>Full tear-offs, architectural shingle and standing-seam metal systems, plus fast storm-damage response.</p>
-        <ul class="service-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Shingle, metal &amp; flat systems</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Free 21-point roof inspection</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Insurance claim assistance</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>30-year manufacturer warranty</li>
-        </ul>
-        <a href="#contact" class="service-link">
-          Book a roof inspection
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-        </a>
-      </article>
-
-      <!-- Refinancing -->
-      <article class="service-card reveal" style="--delay:220ms">
-        <span class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/><path d="M9 11h.01M15 11h.01"/>
-          </svg>
-        </span>
-        <h3>Refinancing &amp; Project Loans</h3>
-        <p>Roll your upgrade into a refinance or a dedicated home-improvement loan with a fixed, predictable payment.</p>
-        <ul class="service-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Rates from 5.99% APR</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>$0 down, no prepayment penalty</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Soft credit check to pre-qualify</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Dedicated lending advisor</li>
-        </ul>
-        <a href="#financing" class="service-link">
-          Estimate your payment
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-        </a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= WHY US ================= -->
-<section class="section section--tint" id="why">
-  <div class="container why-grid">
-    <div class="why-copy reveal">
-      <span class="eyebrow">Why Northgate</span>
-      <h2 class="title">One crew, one contract, one phone number.</h2>
-      <p>Most homeowners juggle a window company, a roofer, and a lender. We're licensed for all three, which means fewer moving parts, faster scheduling, and a single point of accountability from estimate to final walkthrough.</p>
-
-      <ul class="feature-list">
-        <li>
-          <span class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
-          </span>
-          <div>
-            <h3>Licensed, bonded &amp; insured</h3>
-            <p>Fully credentialed in every municipality we serve — with $2M liability coverage on every job site.</p>
-          </div>
-        </li>
-        <li>
-          <span class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          </span>
-          <div>
-            <h3>On-time, or we pay you</h3>
-            <p>Your installation date is written into the contract. If we miss it, we credit $250 back to your invoice.</p>
-          </div>
-        </li>
-        <li>
-          <span class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </span>
-          <div>
-            <h3>Transparent, fixed pricing</h3>
-            <p>Line-item quotes with no "surprise" fees. The number you sign is the number you pay.</p>
-          </div>
-        </li>
-        <li>
-          <span class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 1 0 3 3L21 6l-3-3-3.3 3.3Z"/><path d="m12 12-9 9 3 3 9-9"/></svg>
-          </span>
-          <div>
-            <h3>Clean job sites, every day</h3>
-            <p>Floor protection, magnetic nail sweeps, and full debris removal before we leave each evening.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <aside class="stats-card reveal" style="--delay:140ms">
-      <div class="stats-grid">
-        <div class="stat"><strong data-count="2400" data-suffix="+">0</strong><span>Projects completed</span></div>
-        <div class="stat"><strong data-count="4.9" data-decimals="1">0</strong><span>Average customer rating</span></div>
-        <div class="stat"><strong data-count="18" data-suffix="+">0</strong><span>Years in business</span></div>
-        <div class="stat"><strong data-count="98" data-suffix="%">0</strong><span>Would recommend us</span></div>
-      </div>
-      <a href="#contact" class="btn btn-accent">Book a free inspection</a>
-    </aside>
-  </div>
-</section>
-
-<!-- ================= PROCESS ================= -->
-<section class="section" id="process">
-  <div class="container">
-    <div class="section-head is-center reveal">
-      <span class="eyebrow">How it works</span>
-      <h2 class="title">Four steps, about ten days.</h2>
-      <p>From the first phone call to the final walkthrough, you always know what happens next.</p>
-    </div>
-
-    <ol class="process">
-      <li class="process-step reveal">
-        <span class="step-num">01</span>
-        <h3>Free assessment</h3>
-        <p>A specialist measures your windows and roof, checks attic ventilation, and reviews your goals in about 60 minutes.</p>
-      </li>
-      <li class="process-step reveal" style="--delay:100ms">
-        <span class="step-num">02</span>
-        <h3>Fixed written quote</h3>
-        <p>You get an itemized proposal within 24 hours — with material specs, timelines, and financing options side by side.</p>
-      </li>
-      <li class="process-step reveal" style="--delay:200ms">
-        <span class="step-num">03</span>
-        <h3>Installation</h3>
-        <p>Our own crews (never subcontractors) install everything in 1–3 days, protecting floors and landscaping as they go.</p>
-      </li>
-      <li class="process-step reveal" style="--delay:300ms">
-        <span class="step-num">04</span>
-        <h3>Walkthrough &amp; warranty</h3>
-        <p>We test every unit, sweep for nails, register your warranties, and hand over a digital project file.</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ================= FINANCING / CALCULATOR ================= -->
-<section class="section section--tint" id="financing">
-  <div class="container calc-grid">
-    <div class="reveal">
-      <span class="eyebrow">Refinancing</span>
-      <h2 class="title" style="font-size:clamp(1.7rem,3.4vw,2.4rem);margin:.95rem 0 .9rem;">Turn a big project into a small monthly payment.</h2>
-      <p style="color:var(--muted)">Whether you refinance your mortgage to pull cash out or take a dedicated home-improvement loan, we'll model both options for you — no hard credit pull to see your numbers.</p>
-
-      <ul class="finance-bullets">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Fixed rates from 5.99% APR, terms 5–20 years</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>$0 down and no prepayment penalties</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>Soft-pull pre-qualification in under 3 minutes</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>One payment covering windows and roofing together</li>
-      </ul>
-
-      <a href="#contact" class="btn btn-primary">Talk to a lending advisor</a>
-    </div>
-
-    <div class="calc-card reveal" style="--delay:120ms">
-      <h3>Payment estimator</h3>
-      <p>Drag the sliders to see what your project would cost per month.</p>
-
-      <div class="calc-field">
-        <div class="calc-label">
-          <label for="calcAmount">Project amount</label>
-          <output id="amountOut" for="calcAmount">$18,000</output>
-        </div>
-        <input type="range" id="calcAmount" min="3000" max="75000" step="500" value="18000">
-      </div>
-
-      <div class="calc-field">
-        <div class="calc-label">
-          <label for="calcApr">Interest rate (APR)</label>
-          <output id="aprOut" for="calcApr">6.49%</output>
-        </div>
-        <input type="range" id="calcApr" min="3.99" max="14.99" step="0.25" value="6.49">
-      </div>
-
-      <div class="calc-field">
-        <div class="calc-label">
-          <label for="calcTerm">Loan term</label>
-        </div>
-        <select class="calc-select" id="calcTerm">
-          <option value="5">5 years (60 months)</option>
-          <option value="10" selected>10 years (120 months)</option>
-          <option value="15">15 years (180 months)</option>
-          <option value="20">20 years (240 months)</option>
-        </select>
-      </div>
-
-      <div class="calc-result">
-        <span>Estimated monthly payment</span>
-        <strong class="calc-payment" id="calcPayment">$0 <small>/ month</small></strong>
-        <dl class="calc-breakdown">
-          <div><dt>Total interest</dt><dd id="calcInterest">$0</dd></div>
-          <div><dt>Total repaid</dt><dd id="calcTotal">$0</dd></div>
-        </dl>
-      </div>
-
-      <p class="calc-disclaimer">Estimates are for illustration only and do not constitute a credit offer. Actual rates depend on credit profile, term, and lender approval.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TESTIMONIALS ================= -->
-<section class="section" id="reviews">
-  <div class="container">
-    <div class="section-head is-center reveal">
-      <span class="eyebrow">Reviews</span>
-      <h2 class="title">2,400 projects. Here's what it's like.</h2>
-    </div>
-
-    <div class="slider reveal">
-      <div class="slider-track" id="testimonialTrack">
-        <article class="testimonial">
-          <div class="stars" aria-label="Rated 5 out of 5">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-          </div>
-          <blockquote>“We replaced fourteen windows and the whole roof in one week. The house is noticeably quieter, and our January heating bill dropped by about $90. Financing made it painless.”</blockquote>
-          <div class="testimonial-author">
-            <span class="avatar" aria-hidden="true">MR</span>
-            <div><strong>Marisol R.</strong><span>Window + roof package · Lakewood</span></div>
-          </div>
-        </article>
-
-        <article class="testimonial">
-          <div class="stars" aria-label="Rated 5 out of 5">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-          </div>
-          <blockquote>“After the hail storm, Northgate handled the insurance paperwork with us and had a new roof on in two days. Not a single nail left in the yard — my dog would have found it.”</blockquote>
-          <div class="testimonial-author">
-            <span class="avatar avatar--alt" aria-hidden="true">DK</span>
-            <div><strong>Daniel K.</strong><span>Storm damage roof replacement · Aurora</span></div>
-          </div>
-        </article>
-
-        <article class="testimonial">
-          <div class="stars" aria-label="Rated 5 out of 5">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
-          </div>
-          <blockquote>“The refinance part sold me. Instead of three separate bills I have one payment that's $40 less than what I was paying before. The advisor walked me through every line.”</blockquote>
-          <div class="testimonial-author">
-            <span class="avatar avatar--alt2" aria-hidden="true">AP</span>
-            <div><strong>Anita P.</strong><span>Cash-out refinance · Centennial</span></div>
-          </div>
-        </article>
-      </div>
-
-      <div class="slider-controls">
-        <button class="slider-btn" id="prevSlide" type="button" aria-label="Previous testimonial">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
-        <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Choose testimonial"></div>
-        <button class="slider-btn" id="nextSlide" type="button" aria-label="Next testimonial">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FAQ ================= -->
-<section class="section section--tint" id="faq">
-  <div class="container">
-    <div class="section-head is-center reveal">
-      <span class="eyebrow">Questions</span>
-      <h2 class="title">Answers before you call.</h2>
-    </div>
-
-    <div class="faq reveal">
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          How long does a double-pane window installation take?
-          <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-        </button>
-        <div class="faq-a"><p>Most homes take one to three days. A typical 10–15 window project is completed in a single day, with the crew arriving at 8am and finishing before dinner. Custom or oversized units may add a day.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          Do you offer financing for roofing as well as windows?
-          <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-        </button>
-        <div class="faq-a"><p>Yes. The same refinancing and home-improvement loan programs cover both, and you can combine them into a single payment. Terms run from 5 to 20 years with no prepayment penalty.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          What exactly does "refinancing" have to do with my windows?
-          <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-        </button>
-        <div class="faq-a"><p>Many homeowners use a cash-out refinance or a home-equity loan to pay for energy upgrades and get a lower rate on their existing mortgage at the same time. Our licensed lending advisors model both options and show you the total cost side by side — with no obligation.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          Are your windows ENERGY STAR certified?
-          <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-        </button>
-        <div class="faq-a"><p>Every model we install meets or exceeds ENERGY STAR requirements for our climate zone. That means Low-E glass, argon fill, and a sealed frame system rated for decades of thermal cycling.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          Is the inspection really free?
-          <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-        </button>
-        <div class="faq-a"><p>Yes — no fee, no deposit, and no obligation to buy. We'll measure, inspect, and give you a written quote within 24 hours. If we think a repair is cheaper than a replacement, we'll tell you.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section class="section" id="contact">
-  <div class="container">
-    <div class="section-head is-center reveal">
-      <span class="eyebrow">Get started</span>
-      <h2 class="title">Request your free estimate.</h2>
-      <p>Tell us what you're planning and we'll call within one business day to schedule your assessment.</p>
-    </div>
-
-    <div class="contact-grid">
-      <div class="contact-card reveal">
-        <form id="estimateForm" novalidate>
-          <div class="form-row">
-            <div class="field">
-              <label for="fname">Full name <span class="req">*</span></label>
-              <input type="text" id="fname" name="name" autocomplete="name" placeholder="Jordan Miller">
-              <p class="field-error" data-error-for="fname"></p>
+                <a href="#contact" class="btn-outline">
+                    Get a Free Consultation
+                </a>
             </div>
-            <div class="field">
-              <label for="femail">Email address <span class="req">*</span></label>
-              <input type="email" id="femail" name="email" autocomplete="email" placeholder="jordan@example.com">
-              <p class="field-error" data-error-for="femail"></p>
-            </div>
-          </div>
 
-          <div class="form-row">
-            <div class="field">
-              <label for="fphone">Phone number <span class="req">*</span></label>
-              <input type="tel" id="fphone" name="phone" autocomplete="tel" placeholder="(555) 012-3456">
-              <p class="field-error" data-error-for="fphone"></p>
-            </div>
-            <div class="field">
-              <label for="fservice">Service needed <span class="req">*</span></label>
-              <select id="fservice" name="service">
-                <option value="">Select a service…</option>
-                <option value="windows">Double-pane windows</option>
-                <option value="roofing">Roofing / storm repair</option>
-                <option value="refinancing">Refinancing &amp; financing</option>
-                <option value="all">All three</option>
-                <option value="unsure">Not sure yet</option>
-              </select>
-              <p class="field-error" data-error-for="fservice"></p>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="fmessage">Project details</label>
-            <textarea id="fmessage" name="message" placeholder="e.g. 12 windows on a 1970s ranch, plus a quote on a full roof replacement."></textarea>
-            <p class="field-error" data-error-for="fmessage"></p>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width:100%">
-            Request my free estimate
-            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-          </button>
-
-          <div class="form-success" id="formSuccess" role="status">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
-            <span>Thanks! Your request is in — we'll call you within one business day.</span>
-          </div>
-        </form>
-      </div>
-
-      <aside class="contact-aside reveal" style="--delay:120ms">
-        <h3>Prefer to talk it through?</h3>
-        <p>Our project advisors are available six days a week and never work on commission.</p>
-
-        <ul class="contact-lines">
-          <li>
-            <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
-            <div><strong>Phone</strong><a href="tel:+15550123456">(555) 012-3456</a></div>
-          </li>
-          <li>
-            <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
-            <div><strong>Email</strong><a href="mailto:hello@northgatehome.com">hello@northgatehome.com</a></div>
-          </li>
-          <li>
-            <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <div><strong>Office</strong><span>1420 Ridgeline Ave, Suite 210<br>Denver, CO 80202</span></div>
-          </li>
-          <li>
-            <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-            <div><strong>Hours</strong><span>Mon–Fri 7am–6pm · Sat 8am–2pm</span></div>
-          </li>
-        </ul>
-
-        <div class="badge-row">
-          <span>Licensed</span><span>Insured</span><span>BBB A+</span><span>ENERGY STAR®</span>
         </div>
-      </aside>
     </div>
-  </div>
 </section>
-</main>
 
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-about">
-        <a href="#top" class="logo" aria-label="Northgate Home Solutions — home">
-          <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.6V21h14V9.6"/><path d="M9.5 21v-6h5v6"/>
-            </svg>
-          </span>
-          <span class="logo-text">Northgate<span>Home Solutions</span></span>
-        </a>
-        <p>Double-pane windows, storm-ready roofing, and homeowner refinancing — delivered by one licensed team since 2007.</p>
-        <div class="socials">
-          <a href="#" aria-label="Northgate on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9.5c0-.3.2-.5.5-.5H14Z"/></svg></a>
-          <a href="#" aria-label="Northgate on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="#" aria-label="Northgate on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6 2.5 2.5 0 0 1 4.98 3.5ZM3 8.98h4V21H3ZM9 8.98h3.8v1.64h.05a4.17 4.17 0 0 1 3.75-2.06c4 0 4.4 2.63 4.4 6V21h-4v-5.6c0-1.34 0-3.06-1.87-3.06s-2.16 1.46-2.16 2.96V21H9Z"/></svg></a>
-          <a href="#" aria-label="Northgate on YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.5A2.5 2.5 0 0 0 2.4 7.3C2 8.8 2 12 2 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C5.7 19 12 19 12 19s6.3 0 7.8-.5a2.5 2.5 0 0 0 1.8-1.8C22 15.2 22 12 22 12ZM10 15.5v-7l6 3.5Z"/></svg></a>
-        </div>
-      </div>
+<!-- TRUST BAR -->
 
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Double-pane windows</a></li>
-          <li><a href="#services">Window replacement</a></li>
-          <li><a href="#services">Roof installation</a></li>
-          <li><a href="#services">Storm damage repair</a></li>
-          <li><a href="#financing">Refinancing</a></li>
-        </ul>
-      </div>
+<div class="trust-bar">
+    <div class="container trust-grid">
 
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#why">Why Northgate</a></li>
-          <li><a href="#process">Our process</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact us</a></li>
-        </ul>
-      </div>
+        <strong>✓ Home Improvement Solutions</strong>
 
-      <div class="footer-col">
-        <h4>Visit or call</h4>
-        <address>
-          1420 Ridgeline Ave, Suite 210<br>
-          Denver, CO 80202<br>
-          <a href="tel:+15550123456">(555) 012-3456</a><br>
-          <a href="mailto:hello@northgatehome.com">hello@northgatehome.com</a>
-        </address>
-      </div>
+        <strong>✓ Personalized Consultations</strong>
+
+        <strong>✓ Home Financing Guidance</strong>
+
     </div>
+</div>
 
-    <div class="footer-bottom">
-      <p>&copy; <span id="year">2025</span> Northgate Home Solutions. All rights reserved.</p>
-      <ul>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Licensing</a></li>
-        <
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Our Professional Services</h2>
+
+            <p>
+                Comprehensive home solutions designed
+                to improve comfort, protect your property,
+                and help you explore your financial options.
+            </p>
+        </div>
+
+        <div class="service-grid">
+
+            <!-- WINDOWS -->
+
+            <div class="service-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80"
+                alt="Modern home windows">
+
+                <div class="service-content">
+
+                    <h3>Double-Pane Windows</h3>
+
+                    <p>
+                        Improve indoor comfort and explore
+                        energy-efficient window solutions.
+                        Our double-pane window options help
+                        reduce outside noise and heat transfer.
+                    </p>
+
+                    <a href="#contact">
+                        Request Window Estimate →
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ROOFING -->
+
+            <div class="service-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1635424710928-8a2d3e0fef6d?auto=format&fit=crop&w=900&q=80"
+                alt="Residential roof">
+
+                <div class="service-content">
+
+                    <h3>Roofing Services</h3>
+
+                    <p>
+                        Protect your home with professional
+                        roofing solutions, inspections,
+                        repairs, and replacement options
+                        tailored to your property's needs.
+                    </p>
+
+                    <a href="#contact">
+                        Request Roofing Estimate →
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- REFINANCING -->
+
+            <div class="service-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80"
+                alt="Beautiful residential property">
+
+                <div class="service-content">
+
+                    <h3>Home Refinancing</h3>
+
+                    <p>
+                        Explore refinancing options that
+                        may help you review your mortgage
+                        terms, monthly payments, and
+                        potential access to home equity.
+                    </p>
+
+                    <a href="#contact">
+                        Discuss Refinancing Options →
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container about-grid">
+
+        <div class="about-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85"
+            alt="Beautiful renovated modern home">
+
+        </div>
+
+        <div class="about-content">
+
+            <h2>
+                One Company.
+                Multiple Solutions.
+                A Better Home.
+            </h2>
+
+            <p>
+                At ClearPeak Home & Finance, our goal is
+                to make home improvement and financing
+                decisions easier for homeowners.
+            </p>
+
+            <p>
+                Whether you're considering new windows,
+                a roof replacement, or exploring mortgage
+                refinancing, we help you understand your
+                options and take the next step with confidence.
+            </p>
+
+            <div class="benefit">
+                <span>✓</span> Personalized service
+            </div>
+
+            <div class="benefit">
+                <span>✓</span> Multiple home solutions
+            </div>
+
+            <div class="benefit">
+                <span>✓</span> Clear communication
+            </div>
+
+            <div class="benefit">
+                <span>✓</span> Convenient consultation process
+            </div>
+
+            <br>
+
+            <a href="#contact" class="btn">
+                Speak With Our Team
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+
+<section class="process" id="process">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Getting Started Is Simple</h2>
+
+            <p>
+                Three straightforward steps to explore
+                the right solution for your home.
+            </p>
+        </div>
+
+        <div class="process-grid">
+
+            <div class="process-item">
+
+                <div class="process-number">1</div>
+
+                <h3>Tell Us What You Need</h3>
+
+                <p>
+                    Complete our consultation form
+                    and let us know which service
+                    interests you.
+                </p>
+
+            </div>
+
+            <div class="process-item">
+
+                <div class="process-number">2</div>
+
+                <h3>Discuss Your Options</h3>
+
+                <p>
+                    Our team can discuss your project
+                    and help you understand potential
+                    solutions.
+                </p>
+
+            </div>
+
+            <div class="process-item">
+
+                <div class="process-number">3</div>
+
+                <h3>Take the Next Step</h3>
+
+                <p>
+                    Move forward with a solution
+                    that fits your needs, subject
+                    to applicable terms and approvals.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>Your Home Deserves the Best.</h2>
+
+        <p>
+            Let's discuss your windows, roofing,
+            or refinancing goals today.
+        </p>
+
+        <a href="#contact" class="btn">
+            Request Your Free Consultation
+        </a>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Request Your Free Consultation</h2>
+
+            <p>
+                Tell us a little about your project.
+                Our team can follow up to discuss your needs.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-info">
+
+                <h2>Let's Talk About Your Home.</h2>
+
+                <p>
+                    Interested in upgrading your windows,
+                    replacing your roof, or exploring
+                    refinancing?
+                </p>
+
+                <p>
+                    Fill out the form and let us know
+                    how we can help.
+                </p>
+
+                <p><strong>Services Available:</strong></p>
+
+                <p>✓ Double-Pane Window Solutions</p>
+                <p>✓ Roofing and Replacement</p>
+                <p>✓ Home Refinancing Consultations</p>
+
+                <p>
+                    <strong>Business:</strong>
+                    ClearPeak Home & Finance
+                </p>
+
+            </div>
+
+            <form class="contact-form" id="contactForm">
+
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+
+                    <input
+                    type="text"
+                    id="name"
+                    placeholder="Your full name"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+
+                    <input
+                    type="email"
+                    id="email"
+                    placeholder="Your email address"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+
+                    <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Your phone number"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Interested In *</label>
+
+                    <select id="service" required>
+
+                        <option value="">Select a service</option>
+
+                        <option value="Double-Pane Windows">
+                            Double-Pane Windows
+                        </option>
+
+                        <option value="Roofing">
+                            Roofing
+                        </option>
+
+                        <option value="Home Refinancing">
+                            Home Refinancing
+                        </option>
+
+                        <option value="Multiple Services">
+                            Multiple Services
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Tell Us About Your Project</label>
+
+                    <textarea
+                    id="message"
+                    placeholder="How can we help you?"></textarea>
+                </div>
+
+                <button type="submit" class="btn">
+                    Submit Consultation Request
+                </button>
+
+                <p id="formMessage" role="status"></p>
+
+                <small>
+                    By submitting, you agree to be contacted
+                    regarding your inquiry. Add your applicable
+                    privacy policy and consent language before
+                    launching the website.
+                </small>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>ClearPeak Home & Finance</h3>
+
+                <p>
+                    Helping homeowners explore quality
+                    home improvement and financing solutions.
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h3>Our Services</h3>
+
+                <ul>
+                    <li>Double-Pane Windows</li>
+                    <li>Roofing Solutions</li>
+                    <li>Home Refinancing</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            <p>
+                © <span id="year"></span>
+                ClearPeak Home & Finance.
+                All Rights Reserved.
+            </p>
+
+            <p>
+                Refinancing is subject to lender eligibility,
+                underwriting, credit approval, and applicable terms.
+                No savings or loan approval are guaranteed.
+            </p>
+
+        </div>
+    </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// MOBILE NAVIGATION
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+
+    const isOpen = navLinks.classList.toggle("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+
+});
+
+// CLOSE MOBILE MENU WHEN LINK IS CLICKED
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", function() {
+
+        navLinks.classList.remove("active");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        menuToggle.textContent = "☰";
+
+    });
+
+});
+
+// AUTOMATIC COPYRIGHT YEAR
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+// CONTACT FORM VALIDATION
+
+const contactForm = document.getElementById("contactForm");
+
+const formMessage = document.getElementById("formMessage");
+
+contactForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+
+    const email = document.getElementById("email").value.trim();
+
+    const phone = document.getElementById("phone").value.trim();
+
+    const service = document.getElementById("service").value;
+
+    if (!name || !email || !phone || !service) {
+
+        formMessage.style.color = "red";
+
+        formMessage.textContent =
+            "Please complete all required fields.";
+
+        return;
+
+    }
+
+    const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+
+        formMessage.style.color = "red";
+
+        formMessage.textContent =
+            "Please enter a valid email address.";
+
+        return;
+
+    }
+
+    formMessage.style.color = "#207a42";
+
+    formMessage.textContent =
+        "Thank you! Your information has been validated. " +
+        "Please connect this form to your business email " +
+        "or CRM to receive actual submissions.";
+
+    // This demo validates the form only.
+    // Connect a backend or form service before launch.
+
+    contactForm.reset();
+
+});
+
+</script>
+
+</body>
+</html>
